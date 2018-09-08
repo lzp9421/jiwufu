@@ -11,4 +11,5 @@
 |
 */
 
-Route::get('/', 'FiveFu@index');
+Route::get('/', 'FiveFuController@index');
+Route::get('wechat', 'WechatController@serve');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FiveFu extends Controller
+class FiveFuController extends Controller
 {
     public function index()
     {
