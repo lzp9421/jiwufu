@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/css/swiper.min.css">
 	<link rel="stylesheet" type="text/css" href="sass/index.css">
 	<link rel="stylesheet" type="text/css" href="sass/open.css">
+	<link rel="stylesheet" type="text/css" href="sass/ydui.css">
 	<title>Document</title>
 	<script>
 		function size() {
