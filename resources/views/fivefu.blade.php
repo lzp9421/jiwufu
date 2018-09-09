@@ -6,8 +6,8 @@
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/css/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<link rel="stylesheet" type="text/css" href="css/open.css">
+	<link rel="stylesheet" type="text/css" href="../../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../../public/css/open.css">
 	<title>Document</title>
 	<script>
 		function size() {
@@ -103,7 +103,7 @@
 	</div>
 	<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/js/swiper.min.js"></script>
-	<script type="text/javascript" src="js/ydui.js"></script>
+	<script type="text/javascript" src="../../public/js/ydui.js"></script>
 	<script> 
 		var mySwiper1 = new Swiper('#swiper-container1', {})
 		var mySwiper2 = new Swiper('#swiper-container2', {
