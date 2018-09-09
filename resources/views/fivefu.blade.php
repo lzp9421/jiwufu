@@ -184,8 +184,8 @@
 
 			$("#YDUI_ALERT").fadeOut(300);
 			$("#baoxiang").fadeOut(10);
-			if ($residue < 0 || $residue = 0) return;
-			else $residue - 1;
+			// if ($residue < 0 || $residue = 0) return;
+			 $residue - 1;
 		}
 	</script>
 </body>
