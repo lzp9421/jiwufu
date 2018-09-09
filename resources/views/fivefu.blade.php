@@ -129,7 +129,7 @@
 							'</div>' +
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
-						if ($residue<0 || $residue = 0) return;
+						// if ($residue<0 || $residue = 0) return;
 						else $residue - 1;
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
@@ -157,7 +157,7 @@
 							'</div>' +
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
-						if ($residue < 0 || $residue = 0) return;
+						// if ($residue < 0 || $residue = 0) return;
 						else $residue - 1;
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
