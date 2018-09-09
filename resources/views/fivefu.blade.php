@@ -132,6 +132,8 @@
 							'<div onClick="javascript:addfuka('+data.id+',`'+ data.title+'`);" class="btn btn-hollow">点击领取</div>'+
 							'</div>' +
 							'</div>');
+					} else if (res.code == '101') {
+						YDUI.dialog.alert(res.message)
 					}
 				}
 			})
