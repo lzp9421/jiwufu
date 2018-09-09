@@ -121,7 +121,7 @@
 			YDUI.dialog.loading.open('loading...');
 			$.ajax({
 				url: 'http://fivefu.lzp.name/lottery',
-				type: 'POST',
+				type: 'GET',
 				data: {},
 				success: function (res) {
 					if (res.data.code == '200') {
