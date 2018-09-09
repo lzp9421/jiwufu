@@ -104,17 +104,30 @@
 			$(".chest-close").unbind();
 			$(this).addClass("shake");
 			var that = this;
-			setTimeout(function () {
-				$(that).removeClass("show");
-				$(that).closest(".mod-chest").find(".chest-open").addClass("show");
-				setTimeout(function () {
-					$("#baoxiang").fadeOut(10);
-				}, 800)
-
-			}, 200);
-
-			this.addEventListener("webkitAnimationEnd", function () { }, false);
-
+			YDUI.dialog.loading.open('loading...');
+			$.ajax({
+				url: 'http://fivefu.lzp.name/lottery',
+				type: 'GET',
+				data: {},
+				success: function (res) {
+					YDUI.dialog.loading.close();
+					$("#baoxiang").fadeOut(100);
+					if (res.code == '200') {
+						var data = res.data.card
+						YDUI.dialog.alert(
+							'<div class="alert_por">' +
+							'<img src="'+data.image+'" class="btn-disabled" />' +
+							'<div class="buttons">' +
+							'<div onClick="javascript:addfuka('+data.id+',`'+ data.title+'`);" class="btn btn-hollow">点击领取</div>'+
+							'</div>' +
+							'</div>');
+							$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
+					} else if (res.code == '101') {
+						YDUI.dialog.loading.close();
+						YDUI.dialog.alert(res.message)
+					}
+				}
+			})
 		});
 		//	抽奖
 		$(".imshar").click(function () {
