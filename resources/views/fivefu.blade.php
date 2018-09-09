@@ -6,7 +6,7 @@
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/css/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="../resources/assets/sass/index.css">
+	<link rel="stylesheet" type="text/css" href="./resources/assets/sass/index.css">
 	<link rel="stylesheet" type="text/css" href="../resources/assets/sass/open.css">
 	<title>Document</title>
 	<script>
