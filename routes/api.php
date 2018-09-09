@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/info', 'FiveFuController@info');
+
