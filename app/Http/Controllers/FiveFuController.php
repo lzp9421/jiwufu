@@ -85,7 +85,7 @@ class FiveFuController extends Controller
             $user_card->increment('num');
         }
         $card = Card::firstById($card_id);
-        return $this->success(compact($card), '抽取成功');
+        return $this->success(compact('card'), '抽取成功');
     }
 
     /**
