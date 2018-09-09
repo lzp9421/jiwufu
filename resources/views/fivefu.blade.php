@@ -116,7 +116,8 @@
 
 		});
 		//	抽奖
-		$(".dot").click(function () {
+		$(".imshar").click(function () {
+			console.log(this)
 			YDUI.dialog.loading.open('loading...');
 			$.ajax({
 				url: 'http://fivefu.lzp.name/lottery',
