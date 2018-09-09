@@ -124,6 +124,7 @@
 				type: 'GET',
 				data: {},
 				success: function (res) {
+					YDUI.dialog.loading.close();
 					if (res.code == '200') {
 						var data = res.data.card
 						YDUI.dialog.alert(
@@ -140,6 +141,26 @@
 				}
 			})
 		})
+
+		//	获得福卡
+		function addfuka(id,title){
+		var ecahse = '';
+	 	$("#swiper-container2 .swiper-wrapper div").each(function(s){
+			if($("#swiper-container2 .swiper-wrapper div:eq("+s+")").attr("id")=="heibai_"+id){
+			 	ecahse = s;
+			};
+			
+		});
+		var hollows = Math.floor($('#num_'+id).html());
+		$('#num_'+id).html(hollows+1);
+		YDUI.dialog.notify("恭喜获得一张"+title+"",2000, function(){});
+		$("#heibai_"+id).removeClass("heibai");$("#hb_"+id).removeClass("heibai");
+		$("#hb_"+id).find('a').removeClass("btn-disabled");
+		 
+		$("#YDUI_ALERT").fadeOut(300);
+				$("#baoxiang").fadeOut(10);
+				
+	}
 	</script>
 </body>
 
