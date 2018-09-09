@@ -47,6 +47,10 @@ class FiveFuController extends Controller
         }
         $cards = Card::all()->toArray();
         foreach ($cards as &$card) {
+            if (empty($user_cards[$card['id']])) {
+                $card['num'] = 0;
+                continue;
+            }
             $user_card = $user_cards[$card['id']];
             $card['num'] = $user_card['num'];
         }
