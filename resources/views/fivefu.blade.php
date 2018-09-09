@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/css/swiper.min.css">
 	<link rel="stylesheet" type="text/css" href="../../css/index.css">
-	<link rel="stylesheet" type="text/css" href="../../public/css/open.css">
+	<link rel="stylesheet" type="text/css" href="../../css/open.css">
 	<title>Document</title>
 	<script>
 		function size() {
@@ -43,7 +43,7 @@
 						<div class="navbar-center lotto">
 							<div class="imshar"></div>
 							<img src="http://www.ilvle.com/addons/gicai_xyx/public/default/images/anniu.png" class="dot">
-							<div class="up-b"><img src="../../public/img/up.png"></div>
+							<div class="up-b"><img src="../../img/up.png"></div>
 						</div>
 					</div>
 					<div id="hb_2" class="swiper-slide heibai">
