@@ -103,7 +103,7 @@
 	</div>
 	<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/js/swiper.min.js"></script>
-	<script type="text/javascript" src="../../public/js/ydui.js"></script>
+	<script type="text/javascript" src="../../js/ydui.js"></script>
 	<script> 
 		var mySwiper1 = new Swiper('#swiper-container1', {})
 		var mySwiper2 = new Swiper('#swiper-container2', {
