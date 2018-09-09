@@ -22,8 +22,9 @@ class FiveFuController extends Controller
     public function info()
     {
         $wechat_user = session('wechat.oauth_user'); // 拿到授权用户资料
+        $wechat_user = reset($wechat_user)->toArray();
         $data = [];
-        $data['wechat'] = $wechat_user['id'];
+        $data['wechat_id'] = $wechat_user['id'];
         $data['name'] = $wechat_user['name'];
         $data['nickname'] = $wechat_user['nickname'] ?? '';
         $data['avatar'] = $wechat_user['avatar'] ?? '';
