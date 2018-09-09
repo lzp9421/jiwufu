@@ -43,7 +43,7 @@
 						<div class="navbar-center lotto">
 							<div class="imshar"></div>
 							<img src="http://www.ilvle.com/addons/gicai_xyx/public/default/images/anniu.png" class="dot">
-							<div class="up-b"><img src="../assets/img/up.png"></div>
+							<div class="up-b"><img src="../../public/img/up.png"></div>
 						</div>
 					</div>
 					<div id="hb_2" class="swiper-slide heibai">
