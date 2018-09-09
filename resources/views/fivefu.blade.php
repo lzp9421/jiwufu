@@ -123,9 +123,9 @@
 				type: 'GET',
 				data: {},
 				success: function (res) {
-					console.log(res)
-					if (res.code == '200') {
-						var data = res.code
+					console.log(res.code)
+					if (res.data.code == '200') {
+						var data = res.data.code
 						YDUI.dialog.alert(
 							'<div class="alert_por">' +
 							'<img src="'+data.image+'" class="btn-disabled" />' +
