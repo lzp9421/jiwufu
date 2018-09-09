@@ -47,7 +47,7 @@ class FiveFuController extends Controller
         }
 
         $data['cards'] = $cards;
-        return view('fivefu', compact('data'));
+        return view('fivefu', $data);
     }
 
     /**
