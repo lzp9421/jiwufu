@@ -60,13 +60,13 @@
 		<div class="swiper-container swiper-container-horizontal" id="swiper-container2">
 			<div class="swiper-wrapper">
 				@foreach ($cards as $card)
-				@if ($card['num'] < 0)
-				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide heibai swiper-slide-active active-nav">
+				@if ($card['num'] > 0)
+				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide swiper-slide-active active-nav">
 				<img src="{{ $card['thumb'] }}" alt="{{ $card['title'] }}">
 					<i class="badge" id="{{ 'num_' . $card['id'] }}">{{ $card['num'] }}</i>
 				</div>
 				@else
-				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide swiper-slide-active active-nav">
+				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide heibai swiper-slide-active active-nav">
 				<img src="{{ $card['thumb'] }}" alt="{{ $card['title'] }}">
 					<i class="badge" id="{{ 'num_' . $card['id'] }}">{{ $card['num'] }}</i>
 				</div>
