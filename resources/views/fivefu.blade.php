@@ -50,7 +50,7 @@
 					</div>
 					@foreach ($cards as $card)
 					<div id="{{ 'hb_' . $card['id'] }}" class="swiper-slide heibai">
-						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:song("2d76D03ySDT65eteXvyh+y2wVHLq84jk2WqHxEmC5P1u+J0zEtpSURTB","祝","富强福");'>送一张给朋友</a>
+						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:void(0);'>送一张给朋友</a>
 						<img src="{{ $card['image'] }}" class="main-img">
 					</div>
 					@endforeach
@@ -60,7 +60,11 @@
 		<div class="swiper-container swiper-container-horizontal" id="swiper-container2">
 			<div class="swiper-wrapper">
 				@foreach ($cards as $card)
+				@if ($card['num'] < 0)
 				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide heibai swiper-slide-active active-nav">
+				@else
+				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide swiper-slide-active active-nav">
+				@endif
 					<img src="{{ $card['thumb'] }}" alt="{{ $card['title'] }}">
 					<i class="badge" id="{{ 'num_' . $card['id'] }}">{{ $card['num'] }}</i>
 				</div>
@@ -116,12 +120,14 @@
 						var data = res.data.card
 						YDUI.dialog.alert(
 							'<div class="alert_por">' +
-							'<img src="'+data.image+'" class="btn-disabled" />' +
+							'<img src="' + data.image + '" class="btn-disabled" />' +
 							'<div class="buttons">' +
-							'<div onClick="javascript:addfuka('+data.id+',`'+ data.title+'`);" class="btn btn-hollow">点击领取</div>'+
+							'<div onClick="javascript:addfuka(' + data.id + ',`' + data.title + '`);" class="btn btn-hollow">点击领取</div>' +
 							'</div>' +
 							'</div>');
-							$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
+						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
+						if ($residue<0 || $residue = 0) return;
+						else $residue - 1;
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
@@ -142,13 +148,16 @@
 						var data = res.data.card
 						YDUI.dialog.alert(
 							'<div class="alert_por">' +
-							'<img src="'+data.image+'" class="btn-disabled" />' +
+							'<img src="' + data.image + '" class="btn-disabled" />' +
 							'<div class="buttons">' +
-							'<div onClick="javascript:addfuka('+data.id+',`'+ data.title+'`);" class="btn btn-hollow">点击领取</div>'+
+							'<div onClick="javascript:addfuka(' + data.id + ',`' + data.title + '`);" class="btn btn-hollow">点击领取</div>' +
 							'</div>' +
 							'</div>');
-							$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
+						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
+						if ($residue < 0 || $residue = 0) return;
+						else $residue - 1;
 					} else if (res.code == '101') {
+						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
 					}
 				}
@@ -156,24 +165,25 @@
 		})
 
 		//	获得福卡
-		function addfuka(id,title){
-		var ecahse = '';
-	 	$("#swiper-container2 .swiper-wrapper div").each(function(s){
-			if($("#swiper-container2 .swiper-wrapper div:eq("+s+")").attr("id")=="heibai_"+id){
-			 	ecahse = s;
-			};
-			
-		});
-		var hollows = Math.floor($('#num_'+id).html());
-		$('#num_'+id).html(hollows+1);
-		YDUI.dialog.notify("恭喜获得一张"+title+"",2000, function(){});
-		$("#heibai_"+id).removeClass("heibai");$("#hb_"+id).removeClass("heibai");
-		$("#hb_"+id).find('a').removeClass("btn-disabled");
-		 
-		$("#YDUI_ALERT").fadeOut(300);
-				$("#baoxiang").fadeOut(10);
-				
-	}
+		function addfuka(id, title) {
+			var ecahse = '';
+			$("#swiper-container2 .swiper-wrapper div").each(function (s) {
+				if ($("#swiper-container2 .swiper-wrapper div:eq(" + s + ")").attr("id") == "heibai_" + id) {
+					ecahse = s;
+				};
+			});
+			var hollows = Math.floor($('#num_' + id).html());
+			$('#num_' + id).html(hollows + 1);
+			YDUI.dialog.notify("恭喜获得一张" + title + "", 2000, function () { });
+			$("#heibai_" + id).removeClass("heibai"); 
+			$("#hb_" + id).removeClass("heibai");
+			$("#hb_" + id).find('a').removeClass("btn-disabled");
+
+			$("#YDUI_ALERT").fadeOut(300);
+			$("#baoxiang").fadeOut(10);
+			if ($residue < 0 || $residue = 0) return;
+			else $residue - 1;
+		}
 	</script>
 </body>
 
