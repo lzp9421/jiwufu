@@ -36,4 +36,18 @@ class UserCard extends Model
             ->where('user_id', '=', $user_id)
             ->get($columns);
     }
+
+    /**
+     * @param $user_id
+     * @param $card_id
+     * @param array $columns
+     * @return \Illuminate\Database\Eloquent\Model|null|object|static
+     */
+    public static function firstByUserIdCardId($user_id, $card_id, $columns = ['*'])
+    {
+        return self::query()
+            ->where('user_id', '=', $user_id)
+            ->where('card_id', '=', $card_id)
+            ->first($columns);
+    }
 }

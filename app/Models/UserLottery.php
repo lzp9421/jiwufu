@@ -22,7 +22,7 @@ class UserLottery extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'day', 'num'
+        'user_id', 'card_id', 'day'
     ];
 
     /**

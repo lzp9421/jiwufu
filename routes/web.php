@@ -14,5 +14,5 @@
 Route::get('wechat', 'WechatController@serve');
 Route::group(['middleware' => ['wechat.oauth']], function () {
     Route::get('/', 'FiveFuController@index');
-    Route::get('/info', 'FiveFuController@info');
+    Route::get('/lottery', 'FiveFuController@lottery');
 });
