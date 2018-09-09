@@ -71,7 +71,7 @@
 
 	.lotto {
 		position: relative;
-		height: 6.5rem;
+		height: 5rem!important;
 	}
 	.up-b{ 
 		position:absolute; 

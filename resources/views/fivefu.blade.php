@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="sass/ydui.css">
 	<link rel="stylesheet" type="text/css" href="sass/index.css">
 	<link rel="stylesheet" type="text/css" href="sass/open.css">
-	<link rel="stylesheet" type="text/css" href="sass/ydui.css">
 	<title>Document</title>
 	<script>
 		function size() {
@@ -133,6 +133,7 @@
 							'<div onClick="javascript:addfuka('+data.id+',`'+ data.title+'`);" class="btn btn-hollow">点击领取</div>'+
 							'</div>' +
 							'</div>');
+							$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
 					} else if (res.code == '101') {
 						YDUI.dialog.alert(res.message)
 					}
