@@ -117,16 +117,15 @@
 		});
 		//	抽奖
 		$(".imshar").click(function () {
-			console.log(this)
 			YDUI.dialog.loading.open('loading...');
 			$.ajax({
 				url: 'http://fivefu.lzp.name/lottery',
 				type: 'GET',
 				data: {},
 				success: function (res) {
-					if (res.data.code == '200') {
-						console.log(res)
-						var data = res.data.code
+					console.log(res)
+					if (res.code == '200') {
+						var data = res.code
 						YDUI.dialog.alert(
 							'<div class="alert_por">' +
 							'<img src="'+data.image+'" class="btn-disabled" />' +
