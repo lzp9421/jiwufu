@@ -5,7 +5,7 @@
 		font-size: .24rem;
 	}
 	body{
-		background-image: url('../assets/img/bg.jpg');
+		background-image: url('../img/bg.jpg');
 		background-size: 100% 100%;
 	}
 	h1,h2,h3,h4,h5{
@@ -144,11 +144,4 @@
 		line-height: 1;
 		padding: 3px 6px;
 		white-space: nowrap;
-	}
-	.title-close {
-		background:#FFF;
-		padding:10px 0px 10px 0px; 
-		border-radius: 10px;
-		margin-left:10%;
-		margin-right:10%;
 	}

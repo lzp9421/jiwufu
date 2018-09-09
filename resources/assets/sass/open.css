@@ -8,6 +8,7 @@
 .open-has h3{color: #865500;font-size: 15px;text-align: center;padding-top:75px;padding-bottom:33px;}
 .open-has h3 .user{color: #ff5400;margin:0px 5px;display: inline-block;overflow:hidden;text-overflow:ellipsis; max-width: 100px;position: relative;white-space:nowrap;vertical-align: top;}
 .open-has .title-close .user{}
+.title-close .title {background:#FFF;padding:10px 0px 10px 0px;border-radius: 10px;margin-left:10%;margin-right:10%;}
 .mod-chest {position: relative;width: 100%;}
 .mod-chest .show {z-index: 2; opacity: 1;}
 .mod-chest .chest-close .gift {
