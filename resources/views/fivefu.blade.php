@@ -130,7 +130,7 @@
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
 						// if ($residue<0 || $residue = 0) return;
-						 $residue - 1;
+						//  $residue - 1;
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
@@ -158,7 +158,7 @@
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
 						// if ($residue < 0 || $residue = 0) return;
-						 $residue - 1;
+						//  $residue - 1;
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
@@ -185,7 +185,7 @@
 			$("#YDUI_ALERT").fadeOut(300);
 			$("#baoxiang").fadeOut(10);
 			// if ($residue < 0 || $residue = 0) return;
-			 $residue - 1;
+			//  $residue - 1;
 		}
 	</script>
 </body>
