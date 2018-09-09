@@ -34,7 +34,7 @@
 		<div class="g-scrollview">
 			<div class="navbar-center">
 				<span>
-					您还有 <span id="times">5</span> 次抽奖机会
+					您今天还有 <span id="times">{{ $residue }}</span> 次抽奖机会
 				</span> 
 			</div>
 			<div class="swiper-container swiper-container-horizontal" id="swiper-container1"> 
@@ -46,42 +46,23 @@
 							<div class="up-b"><img src="/img/up.png"></div>
 						</div>
 					</div>
-					<div id="hb_2" class="swiper-slide heibai">
-						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:song("2d76D03ySDT65eteXvyh+y2wVHLq84jk2WqHxEmC5P1u+J0zEtpSURTB","祝","富强福");'>送一张给朋友</a> 
-						<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/GV2aljz1XV0ArgGjr21aJX0y0jEn1l.jpg" class="main-img">
-					</div>
-					<div id="hb_3" class="swiper-slide heibai">
-						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:song("2d76D03ySDT65eteXv/0+S3jBnDt947t2z/akEqD5P1u+J0zEtpSURTB","爱","爱国福");'>送一张给朋友</a> 
-						<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/GV2aljz1XV0ArgGjr21aJX0y0jEn1l.jpg" class="main-img">
-					</div>
+                    @foreach ($cards as $card)
+                        <div id="{{ 'hb_' . $card['id'] }}" class="swiper-slide heibai">
+                            <a class="btn-block gicai_kapiao btn-disabled" href='javascript:song("2d76D03ySDT65eteXvyh+y2wVHLq84jk2WqHxEmC5P1u+J0zEtpSURTB","祝","富强福");'>送一张给朋友</a>
+                            <img src="{{ $card['image'] }}" class="main-img">
+                        </div>
+                    @endforeach
 				</div>
 			</div>
 		</div>
 		<div class="swiper-container swiper-container-horizontal" id="swiper-container2">
 			<div class="swiper-wrapper">
-				<div id="heibai_2" class="swiper-slide heibai swiper-slide-active active-nav">
-					<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/T932j22Ws2sCJSyvsZ2s239s91Hy29.png">
-					<i class="badge" id="num_2">0</i>
-				</div>
-
-				<div id="heibai_3" class="swiper-slide heibai swiper-slide-visible swiper-slide-next">
-					<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/Gp7mmF7Zgf6E3mWfEFR6Y3eFMImy5n.png">
-					<i class="badge" id="num_3">0</i>
-				</div>
-
-				<div id="heibai_4" class="swiper-slide heibai swiper-slide-visible">
-					<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/T932j22Ws2sCJSyvsZ2s239s91Hy29.png">
-					<i class="badge" id="num_4">0</i>
-				</div>
-
-				<div id="heibai_5" class="swiper-slide heibai swiper-slide-visible">
-					<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/sZCQCuOCVFCOq4svcKBEGfcKEpBdOU.png">
-					<i class="badge" id="num_5">0</i>
-				</div>
-				<div id="heibai_5" class="swiper-slide heibai swiper-slide-visible">
-					<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/sZCQCuOCVFCOq4svcKBEGfcKEpBdOU.png">
-					<i class="badge" id="num_5">0</i>
-				</div>
+                @foreach ($cards as $card)
+                    <div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide heibai swiper-slide-active active-nav">
+                        <img src="{{ $card['thumb'] }}" alt="{{ $card['title'] }}">
+                        <i class="badge" id="{{ 'num_' . $card['id'] }}">{{ $card['num'] }}</i>
+                    </div>
+                @endforeach
 			</div>
 		</div>
 		<div class="wrapper" id="baoxiang">
