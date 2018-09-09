@@ -41,6 +41,34 @@
 .open-none .mod-chest{height:150px;}
 .open-none h3{font-size: 15px;color:#865500;text-align: center;padding-top:35px;padding-bottom:40px;}
 .open-none .func{padding:18px 35px 30px;}
+.alert_por{height:auto; overflow:hidden;}
+.alert_por img{width:100%;border-radius:0.2rem;}
+#YDUI_ALERT .m-confirm{ background:none !important;}
+
+#YDUI_ALERT .buttons{ position:absolute; bottom:0px;width:100%;}
+#YDUI_ALERT .buttons .btn-hollow{width:auto; display:block; margin:auto;margin:10px; font-size:0.3rem; color:#eecf98;font-family:'微软雅黑'; font-weight:bold; font-size:16px;}
+#YDUI_ALERT .confirm-bd{padding:0px; border-radius:0.2rem 0.2rem 0px 0px;}
+#YDUI_ALERT .confirm-ft{padding:0px;margin:0px; position:absolute; background:none; text-align:center; top:1px;right:5px;  }
+
+#YDUI_ALERT .confirm-ft a{}
+#YDUI_ALERT .confirm-ft:after{ border:0px;}
+.alert_por{height:auto; overflow:hidden;}
+.alert_por img{width:100%;border-radius:0.2rem;}
+
+#YDUI_ALERT .button_add{  bottom:-0.7rem;width:100%; }
+.button_add_img{border-radius:0.2rem 0.2rem 0px 0px !important;}
+#YDUI_ALERT .button_add .btn-hollow{width:auto; display:block; margin:auto;border-radius:0px 0px 0.2rem 0.2rem!important;font-size:0.3rem; color:#eecf98;font-family:'微软雅黑'; font-weight:bold; font-size:16px;}
+#YDUI_ALERT .button_add .btn-hollow:after{ border:0px;}
+
+.m-cell{margin-bottom:5px;}
+
+#YDUI_ALERT .m-alert{width:75%; position:relative; border:0px;}
+.alert_hongbao{height:5rem; background:#f04b48;border-radius:0.2rem;}
+#YDUI_CONFRIM m-confirm{ background:#FFF;}
+#YDUI_CONFRIM .confirm-hd{padding:10px 10px 5px 10px; background:#FFF;border-radius:0.2rem 0.2rem 0px 0px !important;}
+#YDUI_CONFRIM .confirm-hd .confirm-title{color:#eecf98; font-weight:bold; font-family:'微软雅黑';}
+#YDUI_CONFRIM .confirm-bd{padding:0px 10px 0px 10px;background:#FFF;border-radius:0.2rem 0.2rem 0px 0px !important;}
+#YDUI_CONFRIM .confirm-ft{background:#FFF;border-radius: 0px 0px 0.2rem 0.2rem;} 
 @-webkit-keyframes rotate {
     0% {
         -webkit-transform:rotate(0deg);
