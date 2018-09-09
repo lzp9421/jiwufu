@@ -95,7 +95,7 @@ class FiveFuController extends Controller
     private static function getMaxLottery()
     {
         // 剩余抽奖次数
-        $max_lottery = 10;
+        $max_lottery = 1000;
         return $max_lottery;
     }
 }
