@@ -123,9 +123,8 @@
 				type: 'GET',
 				data: {},
 				success: function (res) {
-					console.log(res.code)
-					if (res.data.code == '200') {
-						var data = res.data.code
+					if (res.code == '200') {
+						var data = res.data.card
 						YDUI.dialog.alert(
 							'<div class="alert_por">' +
 							'<img src="'+data.image+'" class="btn-disabled" />' +
