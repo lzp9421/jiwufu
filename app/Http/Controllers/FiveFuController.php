@@ -71,7 +71,7 @@ class FiveFuController extends Controller
             'onMenuShareAppMessage',
         ];
         $wechat = EasyWeChat::officialAccount();
-        $url = $request->url() . '/';
+        $url = $request->fullUrl();
         $data['config'] = $wechat->jssdk->setUrl($url)->buildConfig($api_list, true, false, false);
 
         $data['cards'] = $cards;
