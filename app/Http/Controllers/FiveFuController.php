@@ -81,7 +81,7 @@ class FiveFuController extends Controller
         }
 
         $key = config('const.CARD_LIST_TODAY');
-        $card_id = app('redis')::lPop($key);
+        $card_id = app()->make('redis')::lPop($key);
         if (!$card_id) {
             // 返回广告随机卡片
             return $this->success([], '你没有抽到');
