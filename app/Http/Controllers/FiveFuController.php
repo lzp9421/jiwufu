@@ -7,11 +7,18 @@ use App\Models\CardGiven;
 use App\Models\User;
 use App\Models\UserCard;
 use App\Models\UserLottery;
+use Overtrue\LaravelWeChat\Facade as EasyWeChat;
 use Illuminate\Http\Request;
 use PhpRedis;
 
 class FiveFuController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     * @throws \Psr\SimpleCache\InvalidArgumentException
+     */
     public function index(Request $request)
     {
         $wechat_user = session('wechat.oauth_user'); // 拿到授权用户资料
@@ -57,6 +64,12 @@ class FiveFuController extends Controller
             $card['user_card_id'] = $user_card['id'];
             $card['num'] = $user_card['num'];
         }
+
+        // 微信sdk配置文件
+        $api_list = ['onMenuShareAppMessage'];
+        $wechat = EasyWeChat::officialAccount();
+        $url = url()->current();
+        $data['config'] = $wechat->jssdk->setUrl($url)->buildConfig($api_list, true, false, false);
 
         $data['cards'] = $cards;
         return view('fivefu', $data);
@@ -129,7 +142,7 @@ class FiveFuController extends Controller
         // 转移用户卡片到待赠送区
         $user_card->decrement('num');
         CardGiven::create(compact('user_id', 'card_id', 'token'));
-        return $this->success();
+        return $this->success([], '赠送成功');
     }
 
     /**
