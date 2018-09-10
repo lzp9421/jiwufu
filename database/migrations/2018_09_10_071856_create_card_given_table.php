@@ -24,7 +24,7 @@ class CreateCardGivenTable extends Migration
             $table->unsignedInteger('create_time')->default(0); // 赠送时间
             $table->unsignedInteger('update_time')->default(0); // 领取时间
 
-            $table->index(['user_id'], ['card_id'], 'idx_user_card');
+            $table->index(['user_id', 'card_id'], 'idx_user_card');
             $table->index('to_user_id', 'idx_to_user_id');
         });
     }
