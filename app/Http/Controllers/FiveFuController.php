@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\UserCard;
 use App\Models\UserLottery;
 use Illuminate\Http\Request;
-use Redis;
 
 class FiveFuController extends Controller
 {
@@ -82,7 +81,7 @@ class FiveFuController extends Controller
         }
 
         $key = config('const.CARD_LIST_TODAY');
-        $card_id = Redis::lPop($key);
+        $card_id = app('redis')::lPop($key);
         if (!$card_id) {
             // 返回广告随机卡片
             return $this->success([], '你没有抽到');
