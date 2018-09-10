@@ -178,4 +178,11 @@ class FiveFuController extends Controller
         $max_lottery = 1000;
         return $max_lottery;
     }
+
+    public function addCardList()
+    {
+        for ($i = 0; $i < 1000; $i++) {
+            phpRedis::rPush(mt_rand(1, 5));
+        }
+    }
 }
