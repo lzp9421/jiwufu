@@ -182,8 +182,9 @@ class FiveFuController extends Controller
     public function addCardList()
     {
         $res = [];
+        $key = config('const.CARD_LIST_TODAY');
         for ($i = 0; $i < 1000; $i++) {
-            $res[] = phpRedis::rPush(mt_rand(1, 5));
+            $res[] = phpRedis::rPush($key, mt_rand(1, 5));
         }
         return $res;
     }
