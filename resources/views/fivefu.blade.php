@@ -44,7 +44,7 @@
 					<div class="swiper-slide">
 						<div class="navbar-center lotto">
 							<div class="imshar"></div>
-							<img src="http://www.ilvle.com/addons/gicai_xyx/public/default/images/anniu.png" class="dot">
+							<img src="/img/anniu.png" class="dot">
 							<div class="up-b"><img src="/img/up.png"></div>
 						</div>
 					</div>
@@ -60,17 +60,10 @@
 		<div class="swiper-container swiper-container-horizontal" id="swiper-container2">
 			<div class="swiper-wrapper">
 				@foreach ($cards as $card)
-				@if ($card['num'] > 0)
-				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide swiper-slide-active active-nav">
-				<img src="{{ $card['thumb'] }}" alt="{{ $card['title'] }}">
-					<i class="badge" id="{{ 'num_' . $card['id'] }}">{{ $card['num'] }}</i>
-				</div>
-				@else
-				<div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide heibai swiper-slide-active active-nav">
-				<img src="{{ $card['thumb'] }}" alt="{{ $card['title'] }}">
-					<i class="badge" id="{{ 'num_' . $card['id'] }}">{{ $card['num'] }}</i>
-				</div>
-				@endif
+                    <div id="{{ 'heibai_' . $card['id'] }}" class="swiper-slide swiper-slide-active active-nav {{ $card['num'] > 0 ? '' : 'heibai' }}">
+                        <img src="{{ $card['thumb'] }}" alt="{{ $card['title'] }}">
+                        <i class="badge" id="{{ 'num_' . $card['id'] }}">{{ $card['num'] }}</i>
+                    </div>
 				@endforeach
 			</div>
 		</div>
@@ -95,8 +88,23 @@
 	</div>
 	<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/js/swiper.min.js"></script>
+	<script src="/js/jweixin-1.4.0.js"></script>
 	<script type="text/javascript" src="/js/ydui.js"></script>
 	<script>
+        wx.config({!! json_encode($config) !!});
+
+        wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+            wx.updateAppMessageShareData({
+                title: '分享标题', // 分享标题
+                desc: '分享描述', // 分享描述
+                link: location.origin + '/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: location.origin + '/', // 分享图标
+            }, function(res) {
+				//这里是回调函数
+				console.log(res)
+            });
+        });
+
 		var mySwiper1 = new Swiper('#swiper-container1', {})
 		var mySwiper2 = new Swiper('#swiper-container2', {
 			watchSlidesProgress: true,
@@ -165,7 +173,7 @@
 					}
 				}
 			})
-		})
+		});
 
 		//	获得福卡
 		function addfuka(id, title) {
@@ -187,6 +195,10 @@
 			// if ($residue < 0 || $residue = 0) return;
 			//  $residue - 1;
 		}
+		// 分享
+        $('.gicai_kapiao').on('click', function () {
+            alert();
+        })
 	</script>
 </body>
 
