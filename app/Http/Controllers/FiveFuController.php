@@ -72,6 +72,9 @@ class FiveFuController extends Controller
         ];
         $wechat = EasyWeChat::officialAccount();
         $url = $request->fullUrl();
+        if ($url === $request->url()) {
+            $url .= '/';
+        }
         $data['config'] = $wechat->jssdk->setUrl($url)->buildConfig($api_list, true, false, false);
 
         $data['cards'] = $cards;
