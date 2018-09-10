@@ -41,11 +41,12 @@ class FiveFuController extends Controller
 
         // 用户卡片列表
         $user_cards = UserCard::findByUserId($data['id'])->toArray();
+        $tmp = [];
         foreach ($user_cards as $key => $user_card) {
-            unset($user_cards[$key]);
             $card_id = $user_card['card_id'];
-            $user_cards[$card_id] = $user_card;
+            $tmp[$card_id] = $user_card;
         }
+        $user_cards = $tmp;
         $cards = Card::all()->toArray();
         foreach ($cards as &$card) {
             if (empty($user_cards[$card['id']])) {
