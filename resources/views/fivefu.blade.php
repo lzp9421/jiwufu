@@ -67,6 +67,7 @@
 				@endforeach
 			</div>
 		</div>
+		@if ($given)
 		<div class="wrapper" id="baoxiang">
 			<div class="bg rotate"></div>
 			<div class="open-has ">
@@ -85,6 +86,7 @@
 				</div>
 			</div>
 		</div>
+		@endif
 	</div>
 	<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/js/swiper.min.js"></script>
