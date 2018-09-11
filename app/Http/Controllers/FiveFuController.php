@@ -54,7 +54,7 @@ class FiveFuController extends Controller
             $tmp[$card_id] = $user_card;
         }
         $user_cards = $tmp;
-        $cards = Card::all()->toArray();
+        $cards = Card::findByType(Card::LOTTERY_CARD)->toArray();
         foreach ($cards as &$card) {
             if (empty($user_cards[$card['id']])) {
                 $card['num'] = 0;

@@ -17,6 +17,7 @@ class CreateCardTable extends Migration
             $this->engine = 'Innodb';
             $table->increments('id');
             $table->string('name', 50)->default('')->comment('卡片标识');
+            $table->unsignedTinyInteger('type')->default(0)->comment('卡片类型：0 一般卡片，1 五福卡片');
             $table->string('title', 50)->default('')->comment('卡片名');
             $table->string('description', 255)->default('')->comment('卡片说明');
             $table->string('image', 255)->default('')->comment('卡片图片');
