@@ -18,6 +18,7 @@ class CreateCardProvideTable extends Migration
             $table->unsignedInteger('card_id')->default(0)->comment('卡片ID');
             $table->unsignedInteger('day')->default(0);
             $table->unsignedInteger('num')->default(0)->comment('数量');
+            $table->unsignedTinyInteger('status')->default(0);
             $table->unsignedInteger('create_time')->default(0);
             $table->unsignedInteger('update_time')->default(0);
             $table->index('day', 'idx_day');
