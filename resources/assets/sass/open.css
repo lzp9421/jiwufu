@@ -69,6 +69,8 @@
 #YDUI_CONFRIM .confirm-hd .confirm-title{color:#eecf98; font-weight:bold; font-family:'微软雅黑';}
 #YDUI_CONFRIM .confirm-bd{padding:0px 10px 0px 10px;background:#FFF;border-radius:0.2rem 0.2rem 0px 0px !important;}
 #YDUI_CONFRIM .confirm-ft{background:#FFF;border-radius: 0px 0px 0.2rem 0.2rem;} 
+#mcover{ position: fixed; top:0;  left:0; width:100%; height:100%;background:rgba(0, 0, 0, 0.7); display:none; z-index:9999999999999999;}
+#mcover img {position: fixed;right: 18px;top:5px;width: 260px;height: 180px;z-index:20001 ;}
 @-webkit-keyframes rotate {
     0% {
         -webkit-transform:rotate(0deg);
