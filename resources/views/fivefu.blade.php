@@ -49,7 +49,7 @@
 						</div>
 					</div>
 					@foreach ($cards as $card)
-					<div id="{{ 'hb_' . $card['id'] }}" class="swiper-slide heibai" data-card-id="{{ $card['id'] }}">
+					<div id="{{ 'hb_' . $card['id'] }}" class="swiper-slide {{ $card['num'] > 0 ? '' : 'heibai' }}" data-card-id="{{ $card['id'] }}">
 						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:void(0);'>送一张给朋友</a>
 						<img src="{{ $card['image'] }}" class="main-img">
 					</div>
