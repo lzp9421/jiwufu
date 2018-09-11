@@ -49,7 +49,7 @@
 						</div>
 					</div>
 					@foreach ($cards as $card)
-					<div id="{{ 'hb_' . $card['id'] }}" class="swiper-slide heibai">
+					<div id="{{ 'hb_' . $card['id'] }}" class="swiper-slide heibai" data-card-id="{{ $card['id'] }}">
 						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:void(0);'>送一张给朋友</a>
 						<img src="{{ $card['image'] }}" class="main-img">
 					</div>
@@ -93,19 +93,32 @@
 	<script>
         wx.config({!! json_encode($config) !!});
 
+        var random = function () {
+			return Math.random().toString(36).substr(2);
+        };
+
         wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
-            wx.onMenuShareAppMessage({
+
+			var share_message = {
                 title: '分享标题', // 分享标题
                 desc: '分享描述', // 分享描述
                 link: location.origin + '/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: location.origin + '/', // 分享图标
                 type: 'link', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function () {
-					// 用户点击了分享后执行的回调函数
-                    console.log(res)
+                success: function (res) {
+                    // 用户点击了分享后执行的回调函数
+                    alert(111)
                 }
-            });
+            };
+            wx.onMenuShareAppMessage(share_message);
+
+            // 分享
+            $('.gicai_kapiao').on('click', function () {
+                var token = random() + random();
+                share_message.link = location.origin + '/?token=' + token + '&card_id=' + $(this).parent('div').attr('data-card-id');
+                alert();
+            })
         });
 
 		var mySwiper1 = new Swiper('#swiper-container1', {})
@@ -198,10 +211,6 @@
 			// if ($residue < 0 || $residue = 0) return;
 			//  $residue - 1;
 		}
-		// 分享
-        $('.gicai_kapiao').on('click', function () {
-            alert();
-        })
 	</script>
 </body>
 
