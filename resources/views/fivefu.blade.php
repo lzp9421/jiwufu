@@ -106,7 +106,7 @@
                 imgUrl: location.origin + '/', // 分享图标
                 type: 'link', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function (res) {
+                success: function () {
                     // 用户点击了分享后执行的回调函数
                     alert(111)
                 }
@@ -117,15 +117,25 @@
             $('.gicai_kapiao').on('click', function () {
                 var token = random() + random();
                 var card_id = $(this).parent('div').attr('data-card-id');
+                share_message.title = '送你一张副卡，请注意查收';
+                share_message.desc = '分享描述：送你一张副卡，请注意查收';
                 share_message.link = location.origin + '/?token=' + token + '&card_id=' + card_id;
-                share_message.success = (function (card_id) {
+                share_message.success = (function (card_id, token) {
                     return function () {
                         $.post('/given', {token: token, card_id: card_id}, function (data) {
+                            // 吐司提示
                             alert(JSON.stringify(data));
+                            // 重置分享链接
+                            share_message.title = '分享标题';
+                            share_message.desc = '分享描述';
+                            share_message.link = location.origin + '/'
+                            share_message.success = function () {
+                                // 吐司提示
+                                alert('分享成功')
+                            }
                         })
-                        alert(222);
                     }
-                })(card_id);
+                })(card_id, token);
                 //wx.onMenuShareAppMessage(share_message);
             })
         });
