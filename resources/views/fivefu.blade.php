@@ -116,8 +116,17 @@
             // 分享
             $('.gicai_kapiao').on('click', function () {
                 var token = random() + random();
-                share_message.link = location.origin + '/?token=' + token + '&card_id=' + $(this).parent('div').attr('data-card-id');
-                alert();
+                var card_id = $(this).parent('div').attr('data-card-id');
+                share_message.link = location.origin + '/?token=' + token + '&card_id=' + card_id;
+                share_message.success = (function (card_id) {
+                    return function () {
+                        $.post('/given', {token: token, card_id: card_id}, function (data) {
+                            alert(JSON.stringify(data));
+                        })
+                        alert(222);
+                    }
+                })(card_id);
+                //wx.onMenuShareAppMessage(share_message);
             })
         });
 
