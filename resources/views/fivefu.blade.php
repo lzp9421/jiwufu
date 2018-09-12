@@ -173,6 +173,9 @@
 					$("#baoxiang").fadeOut(100);
 					if (res.code == '200') {
 						var data = res.data.card
+						if(data = '') {
+							YDUI.dialog.alert(res.message)
+						} else {
 						YDUI.dialog.alert(
 							'<div class="alert_por">' +
 							'<img src="' + data.image + '" class="btn-disabled" />' +
@@ -181,6 +184,7 @@
 							'</div>' +
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
+						}
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
@@ -199,7 +203,10 @@
 					YDUI.dialog.loading.close();
 					if (res.code == '200') {
 						var data = res.data.card
-						YDUI.dialog.alert(
+						if(data = '') {
+							YDUI.dialog.alert(res.message)
+						} else {
+							YDUI.dialog.alert(
 							'<div class="alert_por">' +
 							'<img src="' + data.image + '" class="btn-disabled" />' +
 							'<div class="buttons">' +
@@ -207,6 +214,7 @@
 							'</div>' +
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
+						}
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
