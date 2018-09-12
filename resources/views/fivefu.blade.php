@@ -189,6 +189,9 @@
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
+					} else if (res.code == '99') {
+						YDUI.dialog.loading.close();
+						YDUI.dialog.alert(res.message)
 					}
 				}
 			})
