@@ -176,7 +176,7 @@
 				data: {},
 				success: function (res) {
 					YDUI.dialog.loading.close();
-					$("#baoxiang").fadeOut(500);
+					$("#baoxiang").fadeOut(200);
 					if (res.code == '200') {
 						var data = res.data.card;
 						YDUI.dialog.alert(
@@ -234,12 +234,12 @@
 			});
 			var hollows = Math.floor($('#num_' + id).html());
 			$('#num_' + id).html(hollows + 1);
-			YDUI.dialog.notify("恭喜获得一张" + title + "", 2000, function () { });
+			YDUI.dialog.notify("恭喜获得一张" + title + "", 3000, function () { });
 			$("#heibai_" + id).removeClass("heibai"); 
 			$("#hb_" + id).removeClass("heibai");
 			$("#hb_" + id).find('a').removeClass("btn-disabled");
 
-			$("#YDUI_ALERT").fadeOut(500);
+			$("#YDUI_ALERT").fadeOut(200);
 			$("#baoxiang").fadeOut(10);
 		}
 	</script>
