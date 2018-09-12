@@ -72,7 +72,7 @@
 			<div class="bg rotate"></div>
 			<div class="open-has ">
 				<h3 class="title-close">
-					<div class="title">{{ $given['message'] }}</div>
+					<div class="title">点击开启您的幸运宝箱！</div>
 				</h3>
 				<div class="mod-chest">
 					<div class="chest-close show">
@@ -95,7 +95,6 @@
 	<script type="text/javascript" src="/js/ydui.js"></script>
 	<script>
         wx.config({!! json_encode($config) !!});
-        var user_id = parseInt({!! $id !!});
 
         var random = function () {
 			return Math.random().toString(36).substr(2);
@@ -128,7 +127,7 @@
                 var card_id = $(this).parent('div').attr('data-card-id');
                 share_message.title = '送你一张副卡，请注意查收';
                 share_message.desc = '分享描述：送你一张副卡，请注意查收';
-                share_message.link = location.origin + '/?token=' + token + '&card_id=' + card_id + '&from_user_id=' + user_id;
+                share_message.link = location.origin + '/?token=' + token + '&card_id=' + card_id;
                 share_message.success = (function (card_id, token) {
                     return function () {
                         $.post('/given', {token: token, card_id: card_id}, function (data) {
@@ -172,10 +171,7 @@
 					YDUI.dialog.loading.close();
 					$("#baoxiang").fadeOut(100);
 					if (res.code == '200') {
-						var data = res.data.card
-						if(data = '') {
-							YDUI.dialog.alert(res.message)
-						} else {
+						var data = res.data.card;
 						YDUI.dialog.alert(
 							'<div class="alert_por">' +
 							'<img src="' + data.image + '" class="btn-disabled" />' +
@@ -184,7 +180,6 @@
 							'</div>' +
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
-						}
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
@@ -202,11 +197,8 @@
 				success: function (res) {
 					YDUI.dialog.loading.close();
 					if (res.code == '200') {
-						var data = res.data.card
-						if(data = '') {
-							YDUI.dialog.alert(res.message)
-						} else {
-							YDUI.dialog.alert(
+						var data = res.data.card;
+						YDUI.dialog.alert(
 							'<div class="alert_por">' +
 							'<img src="' + data.image + '" class="btn-disabled" />' +
 							'<div class="buttons">' +
@@ -214,7 +206,6 @@
 							'</div>' +
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
-						}
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
