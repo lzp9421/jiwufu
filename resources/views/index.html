@@ -47,7 +47,7 @@
 						</div>
 					</div>
 					<div id="hb_2" class="swiper-slide heibai">
-						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:song("2d76D03ySDT65eteXvyh+y2wVHLq84jk2WqHxEmC5P1u+J0zEtpSURTB","祝","富强福");'>送一张给朋友</a> 
+						<a class="btn-block gicai_kapiao btn-disabled" href='javascript:song("2d76D03ySDT65eteXvyh+y2wVHLq84jk2WqHxEmC5P1u+J0zEtpSURTB","祝","富强福");' onclick="openCover()">送一张给朋友</a> 
 						<img src="http://ilvle.img.web.ilvle.com/ilvle/images/10/2018/01/GV2aljz1XV0ArgGjr21aJX0y0jEn1l.jpg" class="main-img">
 					</div>
 					<div id="hb_3" class="swiper-slide heibai">
@@ -132,7 +132,11 @@
 			this.addEventListener("webkitAnimationEnd", function(){}, false);
 
 		});	
-		$('.main-img').on('click', function () {
+		// function openCover() {
+		// 	$("#mcover").show();
+		// 	console.log(123)
+		// }
+		$('.btn-block').on('click', function () {
 							$("#mcover").show();
 							console.log(12)
 		})

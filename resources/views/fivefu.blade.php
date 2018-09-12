@@ -118,7 +118,7 @@
 						
 
 						// 打开遮罩层
-						$('.main-img').on('click', function () {
+						$('.swiper-slide').on('click', function () {
 							$("#mcover").show();
 						})
 
