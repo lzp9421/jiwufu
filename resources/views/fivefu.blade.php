@@ -68,7 +68,7 @@
 			</div>
 		</div>
 		@if ($given)
-		<div class="wrapper" id="baoxiang">
+		<div class="wrapper" id="baoxiang" data-href="{{ route('receive', $given) }}">
 			<div class="bg rotate"></div>
 			<div class="open-has ">
 				<h3 class="title-close">
