@@ -119,7 +119,7 @@
 						
 
 						// 打开遮罩层
-						$('.swiper-slide').on('click', function () {
+						$('.btn-block').on('click', function () {
 							$("#mcover").show();
 						})
 

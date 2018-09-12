@@ -345,7 +345,7 @@ table {
 .btn-disabled {
   background-color: #CCC;
   color: #F0F0F0;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .btn-disabled:active {
   background-color: #b8b8b8;
