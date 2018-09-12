@@ -189,10 +189,10 @@
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
-						YDUI.dialog.alert(res.message)
+						YDUI.dialog.toast(res.message,'none', 1500)
 					} else if (res.code == '99') {
 						YDUI.dialog.loading.close();
-						YDUI.dialog.alert(res.message)
+						YDUI.dialog.toast(res.message,'none', 1500)
 					}
 				}
 			})
