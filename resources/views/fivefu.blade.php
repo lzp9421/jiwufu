@@ -116,13 +116,19 @@
             };
             wx.onMenuShareAppMessage(share_message);
 						
+
+						// 打开遮罩层
+						$('.main-img').on('click', function () {
+							$("#mcover").show();
+						})
+
 						// 关闭遮罩层
 						$("#mcover").click(function(){
 							$("#mcover").hide();
 						})
+
             // 分享
             $('.gicai_kapiao').on('click', function () {
-							$("#mcover").show();
                 var token = random() + random();
                 var card_id = $(this).parent('div').attr('data-card-id');
                 share_message.title = '送你一张副卡，请注意查收';

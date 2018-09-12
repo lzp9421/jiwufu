@@ -102,6 +102,7 @@
 			</div>
 		</div>
 	</div>
+	<div id="mcover"><img src="/img/tishi.png"></div>
 	<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.4/js/swiper.min.js"></script>
 	<script type="text/javascript" src="../assets/js/ydui.js"></script>
@@ -131,6 +132,10 @@
 			this.addEventListener("webkitAnimationEnd", function(){}, false);
 
 		});	
+		$('.main-img').on('click', function () {
+							$("#mcover").show();
+							console.log(12)
+		})
 	</script>
 </body>
 </html>
