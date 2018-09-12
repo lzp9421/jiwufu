@@ -170,7 +170,7 @@
 			var that = this;
 			YDUI.dialog.loading.open('loading...');
 			$.ajax({
-				url: 'http://fivefu.lzp.name/lottery',
+				url: $('#baoxiang').attr('data-href'),
 				type: 'GET',
 				data: {},
 				success: function (res) {
