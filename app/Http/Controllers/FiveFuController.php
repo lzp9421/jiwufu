@@ -40,7 +40,7 @@ class FiveFuController extends Controller
             // 用户信息
             $from_user = User::firstById($from_user_id);
             $given_card = Card::firstById($card_id);
-            $message = sprintf('%s送您一张%s卡，请点击宝箱领取', $from_user['name'], $given_card['title']);
+            $message = sprintf('%s送您一张%s，请点击宝箱领取', $from_user['name'], $given_card['title']);
             $data['given'] = compact('from_user_id', 'card_id', 'token', 'message');
         } else {
             $data['given'] = null;
@@ -171,9 +171,18 @@ class FiveFuController extends Controller
         $token = $request->input('token');
         $from_user_id = $request->input('from_user_id');
         $card_id = $request->input('card_id');
+        $card = Card::firstById($card_id);
+        if (!$card) {
+            return $this->error(99, '卡片不存在');
+        }
 
         $give_card = CardGiven::firstByUserCardToken($from_user_id, $card_id, $token);
         if (!$give_card || $give_card['status'] != CardGiven::STATUS_WAITING) {
+            if ($give_card['to_user_id'] == $user_id) {
+                $from_user = User::firstById($from_user_id);
+
+                return $this->error(99, "您已经领取了${from_user['name']}送您的${$card['title']}");
+            }
             return $this->error(99, '手慢啦，卡片已经被别人抢走了~');
         }
         // 扣减待赠送区的卡片
@@ -185,7 +194,7 @@ class FiveFuController extends Controller
             $num = 1;
             UserCard::create(compact('user_id', 'card_id', 'num'));
         } else {
-            $user_card->increment('num');
+            $user_card->increment('num', 1, ['to_user_id' => $user_id]);
         }
         $card = Card::firstById($card_id);
         return $this->success(compact('card'), '领取成功');
