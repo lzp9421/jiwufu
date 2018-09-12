@@ -68,7 +68,7 @@
 			</div>
 		</div>
 		@if ($given)
-		<div class="wrapper" id="baoxiang" data-href="{!! route('receive', $given) !!}">
+		<div class="wrapper" id="baoxiang" data-href="{!! route('receive', array_only($given, ['from_user_id', 'card_id', 'token'])) !!}">
 			<div class="bg rotate"></div>
 			<div class="open-has ">
 				<h3 class="title-close">
