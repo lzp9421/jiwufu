@@ -37,7 +37,13 @@ class FiveFuController extends Controller
         $card_id = $request->input('card_id');
         $token = $request-> input('token');
         if ($from_user_id && $card_id && $token) {
-            $data['given'] = compact('from_user_id', 'card_id', 'token');
+            // 用户信息
+            $from_user = User::firstById($from_user_id);
+            $given_card = Card::firstById($card_id);
+            $message = sprintf('%s送您一张%s卡，请点击宝箱领取', $from_user['name'], $given_card['title']);
+            $data['given'] = compact('from_user_id', 'card_id', 'token', 'message');
+        } else {
+            $data['given'] = null;
         }
 
         // 剩余抽奖次数

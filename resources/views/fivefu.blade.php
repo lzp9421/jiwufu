@@ -72,7 +72,7 @@
 			<div class="bg rotate"></div>
 			<div class="open-has ">
 				<h3 class="title-close">
-					<div class="title">点击开启您的幸运宝箱！</div>
+					<div class="title">{{ $given['message'] }}</div>
 				</h3>
 				<div class="mod-chest">
 					<div class="chest-close show">
