@@ -176,7 +176,7 @@
 				data: {},
 				success: function (res) {
 					YDUI.dialog.loading.close();
-					$("#baoxiang").fadeOut(100);
+					$("#baoxiang").fadeOut(500);
 					if (res.code == '200') {
 						var data = res.data.card;
 						YDUI.dialog.alert(
@@ -189,10 +189,10 @@
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
-						YDUI.dialog.toast(res.message,'none', 1500)
+						YDUI.dialog.toast(res.message,'none', 2000)
 					} else if (res.code == '99') {
 						YDUI.dialog.loading.close();
-						YDUI.dialog.toast(res.message,'none', 1500)
+						YDUI.dialog.toast(res.message,'none', 2000)
 					}
 				}
 			})
@@ -218,7 +218,7 @@
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
 					} else if (res.code == '101') {
 						YDUI.dialog.loading.close();
-						YDUI.dialog.toast(res.message)
+						YDUI.dialog.toast(res.message,'none', 2000)
 					}
 				}
 			})
@@ -239,7 +239,7 @@
 			$("#hb_" + id).removeClass("heibai");
 			$("#hb_" + id).find('a').removeClass("btn-disabled");
 
-			$("#YDUI_ALERT").fadeOut(300);
+			$("#YDUI_ALERT").fadeOut(500);
 			$("#baoxiang").fadeOut(10);
 		}
 	</script>
