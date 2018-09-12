@@ -72,7 +72,7 @@
 			<div class="bg rotate"></div>
 			<div class="open-has ">
 				<h3 class="title-close">
-					<div class="title">点击开启您的幸运宝箱！</div>
+					<div class="title">{{ $given['message'] }}</div>
 				</h3>
 				<div class="mod-chest">
 					<div class="chest-close show">
@@ -95,6 +95,7 @@
 	<script type="text/javascript" src="/js/ydui.js"></script>
 	<script>
         wx.config({!! json_encode($config) !!});
+        var user_id = parseInt({!! $id !!});
 
         var random = function () {
 			return Math.random().toString(36).substr(2);
@@ -133,7 +134,7 @@
                 var card_id = $(this).parent('div').attr('data-card-id');
                 share_message.title = '送你一张副卡，请注意查收';
                 share_message.desc = '分享描述：送你一张副卡，请注意查收';
-                share_message.link = location.origin + '/?token=' + token + '&card_id=' + card_id;
+                share_message.link = location.origin + '/?token=' + token + '&card_id=' + card_id + '&from_user_id=' + user_id;
                 share_message.success = (function (card_id, token) {
                     return function () {
                         $.post('/given', {token: token, card_id: card_id}, function (data) {
@@ -170,7 +171,7 @@
 			var that = this;
 			YDUI.dialog.loading.open('loading...');
 			$.ajax({
-				url: 'http://fivefu.lzp.name/lottery',
+				url: $('#baoxiang').attr('data-href'),
 				type: 'GET',
 				data: {},
 				success: function (res) {
@@ -187,6 +188,9 @@
 							'</div>');
 						$("#YDUI_ALERT .primary").html('<i class="icon-error" style="color:#ffffff;font-size:25px"></i>');
 					} else if (res.code == '101') {
+						YDUI.dialog.loading.close();
+						YDUI.dialog.alert(res.message)
+					} else if (res.code == '99') {
 						YDUI.dialog.loading.close();
 						YDUI.dialog.alert(res.message)
 					}
